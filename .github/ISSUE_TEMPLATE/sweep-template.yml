@@ -6,6 +6,12 @@ body:
   - type: textarea
     id: description
     attributes:
+  - type: input
+    id: expected_time
+    attributes:
+      label: Expected time
+      description: Provide an estimate of the time required to complete this task
+      placeholder: E.g. 2 hours
       label: Details
       description: Tell Sweep where and what to edit and provide enough context for a new developer to the codebase
       placeholder: |
