@@ -30,7 +30,7 @@ namespace StlToInpConverter
                 count++;
                 Console.WriteLine($"reading file {count}/{file_count}");
                 var part_name = file.Name.Split('.')[0];
-                var part = new Part(part_name);
+                var part = new Part(part_name, new List<Node>(), new List<IndexTriangle>());
                 using (var str = new StreamReader(file.FullName))
                 {
                     string line;
@@ -116,7 +116,7 @@ namespace StlToInpConverter
             for (int i = 0; i < datas.Length; i++)
             {
                 double result;
-                if (double.TryParse(datas[i], NumberStyles.Any, culture, out result))
+                if (double.TryParse(datas[i].Replace(" ", ""), NumberStyles.Any, culture, out result))
                 {
                     if (!xread)
                     {
