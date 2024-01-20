@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Part.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="InpFileWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
