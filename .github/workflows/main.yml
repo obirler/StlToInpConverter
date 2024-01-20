@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.0.0
+
+      - name: Restore NuGet packages
+        run: nuget restore StlToInpConverter.sln
+
+      - name: Build
+        run: msbuild.exe StlToInpConverter.sln /p:Configuration=Release /p:Platform="Any CPU"
+
+      - name: Run tests
+        run: dotnet test StlToInpConverter.Tests/StlToInpConverter.Tests.csproj --configuration Release --no-build
