@@ -102,7 +102,12 @@ namespace StlToInpConverter
             }
         }
 
-        private static Point3D get_point(string line)
+        /// <summary>
+/// Parses a line of text and returns a Point3D object representing the coordinates.
+/// </summary>
+/// <param name="line">The line of text containing the coordinates.</param>
+/// <returns>A Point3D object representing the coordinates.</returns>
+private static Point3D get_point(string line)
         {
             line = line.Replace("\t", "");
             var datas = line.Split(' ');
