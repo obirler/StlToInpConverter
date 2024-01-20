@@ -1,4 +1,6 @@
-name:STIC_BULD_CI
+# This workflow will build a .NET project
+
+name: STIC_BULD_CI
 
 on:
   push:
