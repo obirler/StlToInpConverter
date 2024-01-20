@@ -54,11 +54,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CustomCollections">
-      <HintPath>..\..\..\..\..\..\Projects\Mesh-Engineering-Software-Co\FemAnalyzer\Extlib\CustomCollections\CustomCollections.dll</HintPath>
+      <HintPath>..\Extlib\CustomCollections.dll</HintPath>
     </Reference>
     <Reference Include="devDept.Geometry.v12, Version=12.0.239.0, Culture=neutral, PublicKeyToken=9440825e8b4733bc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Projects\Mesh-Engineering-Software-Co\FemAnalyzer\Extlib\Eyeshot\12\devDept.Geometry.v12.dll</HintPath>
+      <HintPath>..\devDept.Geometry.v12.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
