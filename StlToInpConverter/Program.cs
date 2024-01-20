@@ -45,6 +45,46 @@ namespace StlToInpConverter
                         handle_line(line, ref line_count, str, part);
                     }
                 }
+
+                private static Point3D ParsePointFromString(string line)
+                {
+                    line = line.Replace("\t", "");
+                    var datas = line.Split(' ');
+                    bool xread = false;
+                    bool yread = false;
+                    bool zread = false;
+                    double x = double.NaN;
+                    double y = double.NaN;
+                    double z = double.NaN;
+
+                    for (int i = 0; i < datas.Length; i++)
+                    {
+                        double result;
+                        if (double.TryParse(datas[i], NumberStyles.Any, culture, out result))
+                        {
+                            if (!xread)
+                            {
+                                x = result;
+                                xread = true;
+                                continue;
+                            }
+
+                            if (!yread)
+                            {
+                                y = result;
+                                yread = true;
+                                continue;
+                            }
+                            if (!zread)
+                            {
+                                z = result;
+                                zread = true;
+                                continue;
+                            }
+                        }
+                    }
+                    return new Point3D(x, y, z);
+                }
                 parts.Add(part);
             }
             Console.WriteLine("Writing inp file");
