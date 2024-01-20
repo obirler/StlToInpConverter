@@ -21,7 +21,7 @@ namespace StlToInpConverter
                 stw.WriteLine($"** PARTS");
                 stw.WriteLine($"**");
 
-                WriteParts(parts, culture);
+                WriteAssembly(parts, culture);
                 {
                     stw.WriteLine($"*Part, name={part.Name}");
                 WriteParts(parts, culture);
@@ -60,5 +60,10 @@ namespace StlToInpConverter
                 stw.WriteLine($"*End Assembly");
             }
         }
+
+    private void WriteAssembly(List<Part> parts, CultureInfo culture)
+    {
+        // Logic to write the assembly section of the inp file
     }
+}
 }
