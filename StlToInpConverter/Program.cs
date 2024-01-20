@@ -193,7 +193,7 @@ namespace StlToInpConverter
 
                 foreach (var part in parts)
                 {
-                    stw.WriteLine($"*Part, name={part.Name}");
+                    WritePartSection(stw, part)
                     stw.WriteLine($"*Node");
                     foreach (var node_item in part.Nodes)
                     {
@@ -201,7 +201,7 @@ namespace StlToInpConverter
                         var point = node_item.Value;
                         stw.WriteLine($"{id}, {point.X.ToString(culture)}, {point.Y.ToString(culture)}, {point.Z.ToString(culture)}");
                     }
-                    stw.WriteLine("*Element, type=S3R");
+                    WriteElementSection(stw, part)
                     for (int i = 0; i < part.Triangles.Count; i++)
                     {
                         var triangle = part.Triangles[i];
