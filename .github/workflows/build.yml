@@ -1,0 +1,33 @@
+name:STIC_BULD_CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: ["master" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup MsBuild
+      uses: microsoft/setup-msbuild@v1.1
+      
+    - name: Setup NuGet.exe for use with actions
+      uses: NuGet/setup-nuget@v1.1.1
+    
+    - name: Setup VSTest
+      uses: darenm/Setup-VSTest@v1
+        
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
+      
+    - name: Restore NuGet packages
+      run: nuget restore StlToInpConverter.sln
+      
+    - name: Build the solution
+      run: msbuild.exe ModelConverter.sln /p:platform="x64" /p:configuration="Release"
