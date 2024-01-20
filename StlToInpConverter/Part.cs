@@ -10,7 +10,7 @@ using devDept.Geometry;
 
 namespace StlToInpConverter
 {
-    internal class Part
+    public class Part
     {
         public Part()
         {
