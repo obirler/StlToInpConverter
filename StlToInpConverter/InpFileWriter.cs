@@ -7,6 +7,10 @@ namespace StlToInpConverter
 {
     public class InpFileWriter
     {
+        public InpFileWriter()
+        {
+        }
+
         public void WriteInpFile(List<Part> parts, CultureInfo culture)
         {
             using (var stw = new StreamWriter("model.inp"))
