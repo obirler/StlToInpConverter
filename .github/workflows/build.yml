@@ -32,4 +32,4 @@ jobs:
       run: nuget restore StlToInpConverter.sln
       
     - name: Build the solution
-      run: msbuild.exe StlToInpConverter.sln /p:platform="x64" /p:configuration="Release"
+      run: msbuild.exe StlToInpConverter.sln /p:configuration="Release"
