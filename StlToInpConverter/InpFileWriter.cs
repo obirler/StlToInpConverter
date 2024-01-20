@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
@@ -7,7 +9,7 @@ namespace StlToInpConverter
 {
     public class InpFileWriter
     {
-        public void WriteInpFile(List<Part> parts, CultureInfo culture)
+        public void WriteInpFile(List<Part> parts, CultureInfo culture
         {
             using (var stw = new StreamWriter("model.inp"))
             {
@@ -19,9 +21,10 @@ namespace StlToInpConverter
                 stw.WriteLine($"** PARTS");
                 stw.WriteLine($"**");
 
-                foreach (var part in parts)
+                WriteAssembly(parts, culture);
                 {
                     stw.WriteLine($"*Part, name={part.Name}");
+                WriteParts(parts, culture);
                     stw.WriteLine($"*Node");
                     foreach (var node_item in part.Nodes)
                     {
@@ -33,7 +36,12 @@ namespace StlToInpConverter
                     for (int i = 0; i < part.Triangles.Count; i++)
                     {
                         var triangle = part.Triangles[i];
-                        stw.WriteLine($"{i + 1}, {triangle.V1}, {triangle.V2}, {triangle.V3}");
+                        stw.WriteLine($"{i + 1}
+
+    private void WriteParts(List<Part> parts, CultureInfo culture)
+    {
+        // Logic to write the parts section of the inp file
+    }, {triangle.V1}, {triangle.V2}, {triangle.V3}");
                     }
                     stw.WriteLine($"*End Part");
                 }
@@ -52,5 +60,10 @@ namespace StlToInpConverter
                 stw.WriteLine($"*End Assembly");
             }
         }
+
+    private void WriteAssembly(List<Part> parts, CultureInfo culture)
+    {
+        // Logic to write the assembly section of the inp file
     }
+}
 }
